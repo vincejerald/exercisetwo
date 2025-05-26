@@ -12,6 +12,7 @@
       "supportsTablet": true
     },
     "android": {
+       "package": "com.vj.exerciseapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"

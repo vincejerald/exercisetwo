@@ -1,18 +1,27 @@
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseConfig'; // adjust the path if needed
 
 const LoginScreen = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    if (email && password) {
-      Alert.alert('Login Successful', `Welcome, ${email}!`);
-      router.push('/home'); 
-    } else {
+  const handleLogin = async () => {
+    if (!email || !password) {
       Alert.alert('Error', 'Please enter email and password.');
+      return;
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      Alert.alert('Login Successful', `Welcome, ${email}!`);
+      router.push('/home');
+    } catch (error) {
+      console.error('Login error:', error);
+      Alert.alert('Login Failed', error.message);
     }
   };
 
@@ -20,7 +29,6 @@ const LoginScreen = () => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
       <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Login</Text>
 
-      {}
       <TextInput
         style={{
           width: '100%',
@@ -37,7 +45,6 @@ const LoginScreen = () => {
         onChangeText={setEmail}
       />
 
-      {}
       <TextInput
         style={{
           width: '100%',
@@ -54,7 +61,6 @@ const LoginScreen = () => {
         onChangeText={setPassword}
       />
 
-      {}
       <TouchableOpacity
         onPress={handleLogin}
         style={{

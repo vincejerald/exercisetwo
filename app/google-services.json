@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "230377841760",
+    "project_id": "react-native-703dc",
+    "storage_bucket": "react-native-703dc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230377841760:android:108423f97bbbcc89880f05",
+        "android_client_info": {
+          "package_name": "com.vj.exerciseapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACCB8ahmZk4tc06urLa9htECtv5xyNFCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
